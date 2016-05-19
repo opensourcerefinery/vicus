@@ -1,0 +1,13 @@
+phpunit.xml
+composer.lock
+composer.phar
+vendor/
+CVS/*
+*/CVS/*
+.cvsignore
+*/.cvsignore
+/composer.phar
+/security-checker.phar
+._*
+*/._*
+.DS_Store

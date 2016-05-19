@@ -1,0 +1,54 @@
+{
+	"name": "opensourcerefinery/vicus",
+	"require": {
+		"symfony/class-loader": "~2.8",
+		"symfony/filesystem": "~2.8",
+		"symfony/finder": "~2.8",
+		"symfony/http-foundation": "~2.8",
+		"symfony/routing": "~2.8",
+		"symfony/http-kernel": "~2.8",
+		"symfony/config": "~2.8",
+		"symfony/yaml": "~2.8",
+		"symfony/stopwatch": "~2.8",
+		"symfony/monolog-bridge": "~2.8",
+		"pimple/pimple": "~3.0",
+		"gonzalo123/yml2pimple": "0.1.*"
+	},
+	"require-dev": {
+		"symfony/debug": "~2.8",
+		"phpunit/phpunit": "4.5.*@dev",
+		"sensiolabs/security-checker": "dev-master"
+	},
+	"repositories": [
+		{
+			"type": "package",
+			"package": {
+				"name": "gonzalo123/yml2pimple",
+				"version": "0.1.0",
+				"source": {
+					"url": "https://github.com/opensourcerefinery/yml2pimple",
+					"type": "git",
+					"reference": "0.1.0"
+				},
+				"autoload": {
+					"psr-4": {
+						"G\\Yaml2Pimple\\": "src"
+					}
+				}
+			}
+		}
+	],
+	"autoload": {
+		"psr-4": {
+			"\\Vicus\\": "src"
+		}
+	},
+	"scripts-dev": {
+		"post-install-cmd": [
+			"vendor/bin/security-checker security:check"
+		],
+		"post-update-cmd": [
+			"vendor/bin/security-checker security:check"
+		]
+	}
+}
