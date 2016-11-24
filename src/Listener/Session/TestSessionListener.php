@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace \Vicus\Listener\Session;
+namespace Vicus\Listener\Session;
 
 use Pimple\Container;
 use Symfony\Component\HttpKernel\EventListener\TestSessionListener as BaseTestSessionListener;

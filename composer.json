@@ -1,6 +1,7 @@
 {
 	"name": "opensourcerefinery/vicus",
 	"require": {
+        "php": ">=5.4",
 		"symfony/class-loader": "~2.8",
 		"symfony/filesystem": "~2.8",
 		"symfony/finder": "~2.8",
@@ -40,7 +41,7 @@
 	],
 	"autoload": {
 		"psr-4": {
-			"\\Vicus\\": "src"
+			"Vicus\\": "src"
 		}
 	},
 	"scripts-dev": {
