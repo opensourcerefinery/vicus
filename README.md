@@ -33,6 +33,11 @@ $app->run();
 ## Versions
 
 
+## License
+
+Vicus is licensed under the MIT license.
+
+
 ## [TODO]
 * Exception handling
 * sub request
