@@ -25,8 +25,8 @@ use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\Event\PostResponseEvent;
 use Symfony\Component\HttpKernel\HttpCache\HttpCache;
 use Symfony\Component\HttpKernel\HttpCache\Store;
-use G\Yaml2Pimple\ContainerBuilder;
-use G\Yaml2Pimple\YamlFileLoader as ContainerYamlFileLoader;
+use OpenSourceRefinery\Yaml2Pimple\ContainerBuilder;
+use OpenSourceRefinery\Yaml2Pimple\YamlFileLoader as ContainerYamlFileLoader;
 use Pimple\ServiceProviderInterface;
 use Vicus\Api\BootableProviderInterface;
 use Vicus\Api\EventListenerProviderInterface;
@@ -219,7 +219,7 @@ class Application
 			if ($provider instanceof EventListenerProviderInterface) {
 				$provider->subscribe($this->container, $this->container['event_dispatcher']);
 			}
-			
+
 			if ($provider instanceof BootableProviderInterface) {
 				$provider->boot($this->container);
 			}
