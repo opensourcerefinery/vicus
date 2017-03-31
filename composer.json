@@ -13,7 +13,7 @@
 		"symfony/stopwatch": "~2.8",
 		"symfony/monolog-bridge": "~2.8",
 		"pimple/pimple": "~3.0",
-		"gonzalo123/yml2pimple": "1.0.0"
+		"opensourcerefinery/yaml2pimple": "~1.1"
 	},
 	"require-dev": {
 		"symfony/debug": "~2.8",
@@ -21,23 +21,7 @@
 		"sensiolabs/security-checker": "dev-master"
 	},
 	"repositories": [
-		{
-			"type": "package",
-			"package": {
-				"name": "gonzalo123/yml2pimple",
-				"version": "1.0.0",
-				"source": {
-					"url": "https://github.com/opensourcerefinery/yml2pimple",
-					"type": "git",
-					"reference": "1.0.0"
-				},
-				"autoload": {
-					"psr-4": {
-						"G\\Yaml2Pimple\\": "src/"
-					}
-				}
-			}
-		}
+
 	],
 	"autoload": {
 		"psr-4": {
