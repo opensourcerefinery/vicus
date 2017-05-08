@@ -34,6 +34,10 @@ $app->run();
 
 ## Versions
 
+#### 1.1.0
+
+* Underlying yml2pimple code no longer requires the container to be passed. now adding &container as a argument in the services.yml will include it.
+
 #### 1.0.0
 
 * License was added
