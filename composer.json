@@ -13,7 +13,7 @@
 		"symfony/stopwatch": "~2.8",
 		"symfony/monolog-bridge": "~2.8",
 		"pimple/pimple": "~3.0",
-		"opensourcerefinery/yaml2pimple": "~1.1"
+		"opensourcerefinery/yaml2pimple": "~2.0"
 	},
 	"require-dev": {
 		"symfony/debug": "~2.8",
