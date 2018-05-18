@@ -124,14 +124,19 @@ class Application
 
         $this->container['event_dispatcher_add_listeners'] = function ($c) {
             $exceptionController = ($c['exception_controller']) ? $c['exception_controller'] : '\\\Vicus\\Controller\\ErrorController::exceptionAction';
-            $c['event_dispatcher']->addSubscriber(new HttpKernel\EventListener\RouterListener($c['matcher']));
+
+            $logger = null;
+            if ($this->container['logger']) {
+                $logger = $this->container['logger'];
+            }
+            $c['event_dispatcher']->addSubscriber(new HttpKernel\EventListener\RouterListener($c['matcher'], $c['context'], $logger, null, $c['debug']));
 
             $c['event_dispatcher']->addSubscriber(new \Vicus\Listener\StringResponseListener());
             $c['event_dispatcher']->addSubscriber(new \Vicus\Listener\ContentLengthListener());
 
             $c['event_dispatcher']->addSubscriber(new HttpKernel\EventListener\StreamedResponseListener());
-            $c['event_dispatcher']->addSubscriber(new HttpKernel\EventListener\RouterListener($c['matcher']));
-            $listener = new HttpKernel\EventListener\ExceptionListener($exceptionController);
+            // $c['event_dispatcher']->addSubscriber(new HttpKernel\EventListener\RouterListener($c['matcher']));
+            $listener = new HttpKernel\EventListener\ExceptionListener($exceptionController, $logger);
             $c['event_dispatcher']->addSubscriber($listener);
 
             if (isset($c['exception_handler'])) {
