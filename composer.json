@@ -8,6 +8,8 @@
 		"symfony/http-foundation": "~2.8",
 		"symfony/routing": "~2.8",
 		"symfony/http-kernel": "~2.8",
+        "symfony/security": "~2.8",
+        "symfony/debug": "~2.8",
 		"symfony/config": "~2.8",
 		"symfony/yaml": "~2.8",
 		"symfony/stopwatch": "~2.8",
