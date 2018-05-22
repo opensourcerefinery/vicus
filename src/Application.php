@@ -27,6 +27,11 @@ use Symfony\Component\HttpKernel\Event\GetResponseEvent;
 use Symfony\Component\HttpKernel\Event\PostResponseEvent;
 use Symfony\Component\HttpKernel\HttpCache\HttpCache;
 use Symfony\Component\HttpKernel\HttpCache\Store;
+
+
+use OpenSourceRefinery\HttpKernel\EventListener\RouterListener;
+use OpenSourceRefinery\HttpKernel\EventListener\ExceptionListener;
+
 use OpenSourceRefinery\Yaml2Pimple\ContainerBuilder;
 use OpenSourceRefinery\Yaml2Pimple\YamlFileLoader as ContainerYamlFileLoader;
 use Pimple\ServiceProviderInterface;
@@ -129,14 +134,14 @@ class Application
             if ($this->container['logger']) {
                 $logger = $this->container['logger'];
             }
-            $c['event_dispatcher']->addSubscriber(new HttpKernel\EventListener\RouterListener($c['matcher'], $c['context'], $logger, null, $c['debug']));
+            $c['event_dispatcher']->addSubscriber(new RouterListener($c['matcher'], $c['context'], $logger, null, $c['debug']));
 
             $c['event_dispatcher']->addSubscriber(new \Vicus\Listener\StringResponseListener());
             $c['event_dispatcher']->addSubscriber(new \Vicus\Listener\ContentLengthListener());
 
             $c['event_dispatcher']->addSubscriber(new HttpKernel\EventListener\StreamedResponseListener());
             // $c['event_dispatcher']->addSubscriber(new HttpKernel\EventListener\RouterListener($c['matcher']));
-            $listener = new HttpKernel\EventListener\ExceptionListener($exceptionController, $logger);
+            $listener = new ExceptionListener($exceptionController, $logger);
             $c['event_dispatcher']->addSubscriber($listener);
 
             if (isset($c['exception_handler'])) {
