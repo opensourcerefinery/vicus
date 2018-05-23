@@ -134,7 +134,7 @@ class Application
             if ($this->container['logger']) {
                 $logger = $this->container['logger'];
             }
-            $c['event_dispatcher']->addSubscriber(new HttpKernel\EventListener\RouterListener($c['matcher'], $c['context'], $logger, null, $c['debug']));
+            $c['event_dispatcher']->addSubscriber(new RouterListener($c['matcher'], null, $c['context'], $logger, null, $c['debug']));
 
             $c['event_dispatcher']->addSubscriber(new \Vicus\Listener\StringResponseListener());
             $c['event_dispatcher']->addSubscriber(new \Vicus\Listener\ContentLengthListener());
