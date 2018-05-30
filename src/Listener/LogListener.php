@@ -30,8 +30,9 @@ class LogListener implements EventSubscriberInterface
 {
     protected $logger;
     protected $exceptionLogFilter;
+    protected $debug = false;
 
-    public function __construct(LoggerInterface $logger, $exceptionLogFilter = null)
+    public function __construct(LoggerInterface $logger, $exceptionLogFilter = null, $debug = false)
     {
         $this->logger = $logger;
         if (null === $exceptionLogFilter) {
@@ -45,6 +46,7 @@ class LogListener implements EventSubscriberInterface
         }
 
         $this->exceptionLogFilter = $exceptionLogFilter;
+        $this->debug = $debug;
     }
 
     /**
@@ -57,8 +59,9 @@ class LogListener implements EventSubscriberInterface
         if (!$event->isMasterRequest()) {
             return;
         }
-
-        $this->logRequest($event->getRequest());
+        if ($this->debug) {
+            $this->logRequest($event->getRequest());
+        }
     }
 
     /**
@@ -71,8 +74,9 @@ class LogListener implements EventSubscriberInterface
         if (!$event->isMasterRequest()) {
             return;
         }
-
-        $this->logResponse($event->getResponse());
+        if ($this->debug) {
+            $this->logResponse($event->getResponse());
+        }
     }
 
     /**
