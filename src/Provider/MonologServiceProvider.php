@@ -11,9 +11,7 @@
 
  namespace Vicus\Provider;
 
-
-
- use Vicus\Api\BootableProviderInterface;
+use Vicus\Api\BootableProviderInterface;
  use Vicus\Exception\NoEnvironmentSetException;
 
 
@@ -34,7 +32,6 @@ class MonologServiceProvider implements ServiceProviderInterface, BootableProvid
 {
     public function register(Container $container)
     {
-
         $container['logger'] = function () use ($container) {
             return $container['monolog'];
         };
@@ -79,7 +76,7 @@ class MonologServiceProvider implements ServiceProviderInterface, BootableProvid
         };
 
         $container['monolog.listener'] = function () use ($container) {
-            return new LogListener($container['logger'], $container['monolog.exception.logger_filter']);
+            return new LogListener($container['logger'], $container['monolog.exception.logger_filter'], $container['debug']);
         };
 
         $container['monolog.name'] = 'myapp';
