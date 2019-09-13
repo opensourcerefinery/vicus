@@ -9,6 +9,8 @@ class YamlResourceLoader extends FileLoader
 {
     public function load($resource, $type = null)
     {
+        if(empty($resource))
+            return array();
         $configValues = Yaml::parse(file_get_contents($resource));
 
         return $configValues;
