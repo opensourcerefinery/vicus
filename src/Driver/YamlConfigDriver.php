@@ -3,6 +3,7 @@
 namespace Vicus\Driver;
 
 use Symfony\Component\Yaml\Yaml;
+use Vicus\Resource\YamlResourceLoader;
 
 class YamlConfigDriver implements ConfigDriver
 {
@@ -11,7 +12,14 @@ class YamlConfigDriver implements ConfigDriver
         if (!class_exists('Symfony\\Component\\Yaml\\Yaml')) {
             throw new \RuntimeException('Unable to read yaml as the Symfony Yaml Component is not installed.');
         }
-        $config = Yaml::parse($filename);
+        $resourceLoader = new YamlResourceLoader();
+        
+        if (! $resourceLoader->supports($filename)) {
+            throw new \InvalidArgumentException('Invalid file passed to YamlConfigDriver');
+        }
+
+        $config = $resourceLoader->load($flename);
+
         return $config ?: array();
     }
 
