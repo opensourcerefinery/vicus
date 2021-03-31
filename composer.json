@@ -1,27 +1,26 @@
 {
-	"name": "opensourcerefinery/vicus",
+	"name": "mhvdc/vicus",
 	"require": {
-        "php": ">=5.4",
+    "php": ">=5.4",
 		"symfony/class-loader": "~2.8",
 		"symfony/filesystem": "~2.8",
 		"symfony/finder": "~2.8",
 		"symfony/http-foundation": "~2.8",
 		"symfony/routing": "~2.8",
 		"symfony/http-kernel": "~2.8",
-        "symfony/security": "~2.8",
-        "symfony/debug": "~2.8",
+    "symfony/security": "~2.8",
+    "symfony/debug": "~2.8",
 		"symfony/config": "~2.8",
 		"symfony/yaml": "~2.8",
 		"symfony/stopwatch": "~2.8",
 		"symfony/monolog-bridge": "~2.8",
 		"pimple/pimple": "~3.0",
-        "opensourcerefinery/http-kernel": "~2.8",
-		"opensourcerefinery/yaml2pimple": "~2.0"
+    "mhvdc/http-kernel": "~2.8",
+		"mhvdc/yaml2pimple": "~2.0"
 	},
 	"require-dev": {
 		"symfony/debug": "~2.8",
 		"phpunit/phpunit": "4.5.*@dev",
-		"sensiolabs/security-checker": "dev-master"
 	},
 	"repositories": [
 
