@@ -1,5 +1,5 @@
 {
-	"name": "mhvdc/vicus",
+	"name": "opensourcerefinery/vicus",
 	"require": {
     "php": ">=5.4",
 		"symfony/class-loader": "~2.8",
@@ -21,6 +21,8 @@
 	"require-dev": {
 		"symfony/debug": "~2.8",
 		"phpunit/phpunit": "4.5.*@dev",
+    "sensiolabs/security-checker": "dev-master"
+
 	},
 	"repositories": [
 
