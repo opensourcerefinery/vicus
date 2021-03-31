@@ -15,8 +15,8 @@
 		"symfony/stopwatch": "~2.8",
 		"symfony/monolog-bridge": "~2.8",
 		"pimple/pimple": "~3.0",
-    "mhvdc/http-kernel": "~2.8",
-		"mhvdc/yaml2pimple": "~2.0"
+    "opensourcerefinery/http-kernel": "~2.8",
+		"opensourcerefinery/yaml2pimple": "~2.0"
 	},
 	"require-dev": {
 		"symfony/debug": "~2.8",
